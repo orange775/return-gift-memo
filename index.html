@@ -3,15 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Return Gift</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
   <script language="javascript" type="text/javascript">
       url = `data.json`;
 
       $.getJSON(url, (data) => {
         console.log(`id=${data.id}, name=${data.name}, email=${data.email}`);
+        var test = {
+          "id": "2",
+          "name": "taros",
+          "email": "taros@sample.com"
+        }
+        data.push(test);
       });
   </script>
   <form class="" action="." method="get">

@@ -13,7 +13,7 @@
     if(window.File) {
       if(params != null){
         var j_data;
-        forEach((names, name) => {
+        names.forEach(name => {
           p_name = name;
           p_val = location.search.match(/(&|\?)/+name+/=(.*?)(&|$)/);
           if(j_data == null){

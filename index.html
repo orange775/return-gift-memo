@@ -3,14 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <title>Return Gift</title>
-<script type="text/javascript" src="../js/delighters.js"></script>
-<link href="../css/style.css" type="text/css" rel="stylesheet" />
-<link href="../css/common.css" type="text/css" rel="stylesheet" />
 </head>
 <body>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"/>
+  <script language="javascript" type="text/javascript">
+      url = `data.json`;
+
+      $.getJSON(url, (data) => {
+        console.log(`id=${data.id}, name=${data.name}, email=${data.email}`);
+      });
+  </script>
   <form class="" action="." method="get">
     <p>誰から：<br/>
-      <select name="giftfrom" size="12">
+      <select name="giftfrom" size="12" required>
         <option value="1">両親</option>
         <option value="2">兄弟姉妹</option>
         <option value="3">祖父母</option>
@@ -23,10 +29,10 @@
       </select>
     </p>
     <p>何を：
-      <input type="text" name="giftwhat" size="12">
+      <input type="text" name="giftwhat" size="12" required>
     </p>
     <p>いくら：
-      <input type="text" name="giftprice" size="12">
+      <input type="text" name="giftprice" size="12" required>
     円</p>
     <button type="submit">保存</button>
   </form>

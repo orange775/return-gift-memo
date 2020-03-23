@@ -14,8 +14,8 @@
       if(params != null){
         var j_data = {};
         names.forEach((name, i) => {
-          var reg = new RegExp("[&|\?]" + name + "=(.*?)[&|$]");
-          j_data[name] = location.search.match(reg);
+          var reg = new RegExp("[&|\?]" + name + "=(.*?)[&|#]");
+          j_data[name] = location.search.match(reg)[1];
         });
       }
       alert(j_data);
@@ -23,7 +23,7 @@
       alert("ご使用のブラウザはFile APIをサポートしていません");
     }
   </script>
-  <form class="" action="." method="get">
+  <form class="" action="#" method="get">
     <p>誰から：<br/>
       <select name="giftfrom" size="12" required>
         <option value="1">両親</option>

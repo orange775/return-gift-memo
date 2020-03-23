@@ -6,20 +6,23 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 </head>
 <body>
-
-
   <script language="javascript" type="text/javascript">
-      url = `data.json`;
-
-      $.getJSON(url, (data) => {
-        console.log(`id=${data.id}, name=${data.name}, email=${data.email}`);
-        var test = {
-          "id": "2",
-          "name": "taros",
-          "email": "taros@sample.com"
-        }
-        data.push(test);
-      });
+    var names = ["giftfrom", "giftwhat", "giftprice"];
+    var params = location.search.match(/(&|\?)(.*?)=(.*?)(&|$)/);
+    //File API
+    if(window.File) {
+      if(params != null){
+        var data;
+        forEach((names, name) => {
+          p_name = name;
+          p_val = location.search.match(/(&|\?)name=(.*?)(&|$)/);
+          data = {p_name : p_val};
+        });
+      }
+      var j_data.push({p_name : p_val});
+    }else{
+      alert("ご使用のブラウザはFile APIをサポートしていません");
+    }
   </script>
   <form class="" action="." method="get">
     <p>誰から：<br/>

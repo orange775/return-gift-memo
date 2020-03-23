@@ -14,8 +14,8 @@
       if(params != null){
         var j_data;
         names.forEach(name => {
-          p_name = name;
-          p_val = location.search.match(/(&|\?)/+name+/=(.*?)(&|$)/);
+          var p_name = name;
+          var p_val = location.search.match(/(&|\?)/+name+/=(.*?)(&|$)/);
           if(j_data == null){
             j_data = {p_name : p_val};
           }else{

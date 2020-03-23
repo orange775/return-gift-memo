@@ -13,13 +13,18 @@
     if(window.File) {
       if(params != null){
         var data;
+        var j_data;
         forEach((names, name) => {
           p_name = name;
           p_val = location.search.match(/(&|\?)/+name+/=(.*?)(&|$)/);
           data = {p_name : p_val};
         });
       }
-      var j_data.push(data);
+      if(j_data == null){
+        j_data = data;
+      }else{}
+        j_data.push(data);
+      }
       alert(j_data);
     }else{
       alert("ご使用のブラウザはFile APIをサポートしていません");

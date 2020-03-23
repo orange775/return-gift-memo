@@ -12,18 +12,16 @@
     //File API
     if(window.File) {
       if(params != null){
-        var data;
         var j_data;
         forEach((names, name) => {
           p_name = name;
           p_val = location.search.match(/(&|\?)/+name+/=(.*?)(&|$)/);
-          data = {p_name : p_val};
+          if(j_data == null){
+            j_data = {p_name : p_val};
+          }else{
+            j_data.push({p_name : p_val});
+          }
         });
-      }
-      if(j_data == null){
-        j_data = data;
-      }else{}
-        j_data.push(data);
       }
       alert(j_data);
     }else{

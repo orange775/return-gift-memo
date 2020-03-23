@@ -16,7 +16,7 @@
         names.forEach((name, i) => {
           var p_name = name;
           var p_val = location.search.match(/(&|\?)/+name+/=(.*?)(&|$)/);
-          j_data[i] = {p_name : p_val};
+          j_data[i+1] = {p_name : p_val};
         });
       }
       alert(j_data);

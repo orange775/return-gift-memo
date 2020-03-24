@@ -14,13 +14,24 @@
       if(params != null){
         var j_data = {};
         names.forEach((name, i) => {
-          var reg = new RegExp("[&|\?]" + name + "=(.*?)[&|#]");
+          var reg = new RegExp("[&|\?]" + name + "=(.*?)[&|$]");
           j_data[name] = location.search.match(reg)[1];
         });
       }
-      alert(j_data);
+      // 保存するJSONファイルの名前
+      const fileName = "mochi.json";
+      // データをJSON形式の文字列に変換する。
+      const data = JSON.stringify(j_data);
+      // HTMLのリンク要素を生成する。
+      const link = document.createElement("a");
+      // リンク先にJSON形式の文字列データを置いておく。
+      link.href = "data:text/plain," + encodeURIComponent(data);
+      // 保存するJSONファイルの名前をリンクに設定する。
+      a.download = fileName;
+      // ファイルを保存する。
+      a.click();
     }else{
-      alert("ご使用のブラウザはFile APIをサポートしていません");
+      alert("ご使用のブラウザはFile APIをサポートしていないため、\nデータの保存ができません。");
     }
   </script>
   <form class="" action="#" method="get">
@@ -43,6 +54,7 @@
     <p>いくら：
       <input type="text" name="giftprice" size="12" required>
     円</p>
+    <input type="hidden" name="giftindex" value="0">
     <button type="submit">保存</button>
   </form>
 </body>
